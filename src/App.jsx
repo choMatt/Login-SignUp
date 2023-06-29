@@ -34,10 +34,10 @@ function App() {
   }
 
   const authComponent = isSignIn ? (
-      <SignIn clickFunction={toggleAuthView} />
+      <SignIn toggleAuthView={toggleAuthView} />
     ) : (
       <SignUp
-        clickFunction={toggleAuthView}
+        toggleAuthView={toggleAuthView}
         inputUpdate={inputUpdate}
         submitForm={submitForm}
         formData={formData}
