@@ -5,9 +5,21 @@ const SignIn = function(props){
         <div>
             <h1>Sign In</h1>
             <form action="">
-                <input type="text" placeholder='Email' /> 
-                <input type="text" placeholder='Password' /> 
-                <button>Sign In</button>
+                <input 
+                    onChange={(event) => props.signInInputUpdate(event)}
+                    type="text" 
+                    placeholder='Email' 
+                    name='email'
+                    value={props.auth.email}
+                /> 
+                <input 
+                    onChange={(event) => props.signInInputUpdate(event)} 
+                    type="text" 
+                    placeholder='Password' 
+                    name='password'
+                    value={props.auth.password}
+                />
+                <button onClick={props.signIn}>Sign In</button>
             </form>
             <a onClick={props.toggleAuthView} href='#'>Create ccount</a>
         </div>
