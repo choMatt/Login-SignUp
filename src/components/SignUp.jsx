@@ -2,7 +2,6 @@ import React from 'react'
 
 
 const SignUp = function(props) {
-    console.log(props)
     return (
         <div>
             <h1>Sign Up</h1>
@@ -10,14 +9,14 @@ const SignUp = function(props) {
                 action=""
             >
                 <input 
-                    onChange={(e) => props.inputUpdate(e)}
+                    onChange={(event) => props.inputUpdate(event)}
                     type="text" 
                     placeholder='Email' 
                     name='email'
                     value= {props.formData.email}
                 /> 
                 <input 
-                    onChange={(e) => props.inputUpdate(e)}
+                    onChange={(event) => props.inputUpdate(event)}
                     type="password" 
                     placeholder='Password' 
                     name='password'
