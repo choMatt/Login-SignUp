@@ -9,7 +9,7 @@ const SignIn = function(props){
                 <input type="text" placeholder='Password' /> 
                 <button>Sign In</button>
             </form>
-            <a onClick={props.clickFunction} href='#'>Create ccount</a>
+            <a onClick={props.toggleAuthView} href='#'>Create ccount</a>
         </div>
     )
 }
