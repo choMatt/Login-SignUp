@@ -8,7 +8,6 @@ const SignUp = function(props) {
             <h1>Sign Up</h1>
             <form 
                 action=""
-                noValidate
             >
                 <input 
                     onChange={(e) => props.inputUpdate(e)}
@@ -16,7 +15,6 @@ const SignUp = function(props) {
                     placeholder='Email' 
                     name='email'
                     value= {props.formData.email}
-                    required
                 /> 
                 <input 
                     onChange={(e) => props.inputUpdate(e)}
@@ -24,7 +22,6 @@ const SignUp = function(props) {
                     placeholder='Password' 
                     name='password'
                     value= {props.formData.password}
-                    required
                 /> 
                 <button onClick={props.submitForm}>Sign Up</button>
             </form>
