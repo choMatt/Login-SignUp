@@ -4,47 +4,43 @@ import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
 
 function App() {
-  const [isSignIn, setIsSignIn] = useState(false)
 
-  function clickHandler(){
+  const [isSignIn, setIsSignIn] = useState(false)
+  const [userData, setUserData] = useState([])
+  const [formData, setFormData] = useState({email:'', password:''})
+
+  function toggleAuthView(){
     setIsSignIn(!isSignIn)
     setFormData({ email: '', password: '' });
   }
 
-  const [accounts, setAccounts] = useState([])
-  console.log(accounts)
-
-  const [formData, setFormData] = useState({
-    email:'',
-    password:''
-  })
-    
-  function handleChange(event) {
+  function inputUpdate(event) {
+    const {name, value} = event.target
     setFormData(prevFormData => {
         return {
             ...prevFormData,
-            [event.target.name]: event.target.value
+            [name]: value
         }
     })
   }
 
-  function handleSubmit(event) {
+  function submitForm(event) {
     event.preventDefault();
     if (formData.email && formData.password) {
-      setAccounts(prevAccounts => [...prevAccounts, formData]);
+      setUserData((prevUserData) => [...prevUserData, formData]);
     } else {
       console.error('input required')
     }
   }
 
-
   const authComponent = isSignIn ? (
-      <SignIn clickFunction={clickHandler} />
+      <SignIn clickFunction={toggleAuthView} />
     ) : (
       <SignUp
-        clickFunction={clickHandler}
-        inputHandle={handleChange}
-        submit={handleSubmit}
+        clickFunction={toggleAuthView}
+        inputUpdate={inputUpdate}
+        submitForm={submitForm}
+        formData={formData}
       />
   );
 
